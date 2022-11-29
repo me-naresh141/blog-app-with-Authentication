@@ -7,7 +7,8 @@
 * ***Delete*** blog
 
 
-# Tach
+# Technology
+
 * ***ejs***
 * ***javaScript***
 * ***node.js***
@@ -17,7 +18,7 @@
 
 # Details
 
-logged in user can do all **CRUD** operations and **like** or **dislike** or **comments** .
+logged in user can do all **CRUD** operations and **like** or **dislike** or **comments**. he can delete a comment. 
 
 
 
