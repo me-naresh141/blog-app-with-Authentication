@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>home</title>
+</head>
+
+<body>
+  <header class="bg-color-black pading-1rem">
+    <div class="container flex justify-between align-center">
+      <a class="color-white font-size-1" href="/">Blog</a>
+      <nav>
+        <a title="soon login" href="/users/login"><button class="btn btn-secondary margin-right-1">Login</button></a>
+        <a href="/users/registration"><button class="btn btn-secondary">Registration</button></a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="height bg-color-black-light">
+      <div class="container pading-1rem">
+        <marquee behavior="" direction="right">
+          <h1 class="color-white font-size-2">Blog app</h1>
+        </marquee>
+      </div>
+      <section class="container height-50 color-white border-white overflow-scroll scroll-none">
+        <%if(article.length===0){%>
+          <h1 class="text-uppercase font-size-15 text-center color-pink margin-tb">
+            No Article
+          </h1>
+          <%}%>
+            <%article.forEach((article)=>{%>
+              <div class="bg-color-black margin-tb pading-1rem-around">
+                <h2 class="text-uppercase font-size-15">
+                  <%=article.title%>
+                </h2>
+                <p class="color-pink">
+                  <%=article.date%>
+                </p>
+                <h4 class="text-captilize font-size-1 pading-1rem">
+                  <%=article.description.slice(0,300)%>
+                </h4>
+                <a href="/users/login"><button class="btn btn-sucess">Reed more</button></a>
+              </div>
+              <%})%>
+      </section>
+    </section>
+  </main>
+  <!-- footer -->
+  <footer class="bg-color-black pading-1rem">
+    <div class="container text-center">
+      <span class="color-green">&copy This app is created by Naresh Rajpoot</span>
+    </div>
+  </footer>
+</body>
+
+</html>

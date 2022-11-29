@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>home</title>
+</head>
+
+<body>
+  <header class="bg-color-black pading-1rem">
+    <div class="container flex justify-between align-center">
+      <a class="color-white font-size-1" href="/">Blog</a>
+      <nav>
+        <a href="/users/registration"><button class="btn btn-secondary">Registration</button></a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="height bg-color-black-light">
+      <div class="container pading-1rem">
+        <marquee behavior="" direction="right">
+          <h1 class="color-white font-size-2">Please complete the form</h1>
+        </marquee>
+      </div>
+      <section class="container height-50 color-white flex justify-center align-center">
+        <div class="width-50 margin-0-auto pading-1rem-around width-100-mq">
+          <form action="/users/login" method="post" class="pading-1rem-around border-white">
+            <h2 class="text-center font-size-2">Login</h2>
+            <%if(error){%>
+              <p class="color-red text-captilize">
+                <%=error%>
+              </p>
+              <% }%>
+                <label for="#">Email</label>
+                <input type="email" name="email" id="" placeholder="email" />
+                <label for="#">Password</label>
+                <input type="password" name="password" id="" placeholder="password" />
+                <button class="flex margin-0-auto btn btn-sucess" type="submit">
+                  Login
+                </button>
+          </form>
+        </div>
+      </section>
+    </section>
+  </main>
+  <!-- footer -->
+  <footer class="bg-color-black pading-1rem">
+    <div class="container text-center">
+      <span class="color-green">&copy This app is created by Naresh Rajpoot</span>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>user</title>
+</head>
+
+<body>
+  <header class="bg-color-black pading-1rem">
+    <div class="container flex justify-between align-center">
+      <a class="color-white font-size-1" href="/users">Blog</a>
+      <nav>
+        <a title="soon logout" href="/users/logout"><button class="btn btn-secondary margin-right-1">Logout</button></a>
+        <a title="create blog" href="/users/new"><button class="btn btn-secondary margin-right-1">
+            New Blog
+          </button></a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="height bg-color-black-light">
+      <div class="container pading-1rem">
+        <marquee behavior="" direction="right">
+          <h1 class="color-white font-size-2">
+            <%=new Date().toLocaleTimeString()%>
+          </h1>
+        </marquee>
+      </div>
+      <section class="container height-50 color-white overflow-scroll scroll-none">
+        <div>
+          <%article.forEach((article)=>{%>
+            <div class="pading-1rem-around bg-color-black margin-tb">
+              <h2 class="text-uppercase font-size-15">
+                <%=article.title%>
+              </h2>
+              <p class="color-pink">
+                <%=article.date%>
+              </p>
+              <h4 class="text-captilize font-size-1">
+                <%=article.description.slice(0,300) + '...' %>
+              </h4>
+              <a href="/users/<%=article.id%>"><button class="btn btn-sucess">Reed more</button></a>
+            </div>
+            <%})%>
+        </div>
+      </section>
+    </section>
+  </main>
+  <!-- footer -->
+  <footer class="bg-color-black pading-1rem">
+    <div class="container text-center">
+      <span class="color-green">&copy This app is created by Naresh</span>
+    </div>
+  </footer>
+</body>
+
+</html>

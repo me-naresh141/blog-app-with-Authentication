@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <!--font awseome  -->
+    <script
+      src="https://kit.fontawesome.com/d08fba0fb1.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>singal page</title>
+  </head>
+
+  <body>
+    <header class="bg-color-black pading-1rem">
+      <div class="container flex justify-between align-center">
+        <a class="color-white font-size-1" href="/users">Blog</a>
+        <nav>
+          <a title="soon logout" href="/users"
+            ><button class="btn btn-secondary margin-right-1">Back</button></a
+          >
+          <a title="soon logout" href="/users/new"
+            ><button class="btn btn-secondary margin-right-1">
+              New Blog
+            </button></a
+          >
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="height bg-color-black-light">
+        <div class="container pading-1rem">
+          <marquee behavior="" direction="right">
+            <h1 class="color-white font-size-2">
+              <%=new Date().toLocaleTimeString()%>
+            </h1>
+          </marquee>
+        </div>
+        <section
+          class="container height-50 color-white border-white overflow-scroll scroll-none"
+        >
+          <!-- 1 -->
+          <div class="">
+            <h1 class="font-size-15 text-uppercase"><%=article.title%></h1>
+            <p class="color-pink"><%=article.date%></p>
+            <!-- 2 -->
+            <div class="height25 overflow-scroll scroll-none">
+              <h2 class="font-size-1 text-captilize line-height">
+                <%=article.description%>
+              </h2>
+            </div>
+            <!-- 3 -->
+            <div>
+              <a title="like" href="/users/<%=article.id%>/likes"
+                ><i class="fa-solid fa-thumbs-up"></i
+              ></a>
+              <span> <%=article.likes%> </span>
+              <a
+                title="Dislike"
+                class="margin-left-1"
+                href="/users/<%=article.id%>/dislike"
+                ><i class="fa-solid fa-thumbs-down"></i
+              ></a>
+              <a
+                title="Edit"
+                class="color-white margin-left-1"
+                href="/users/<%=article.id%>/edit"
+                ><i class="fa-solid fa-pen"></i
+              ></a>
+              <a
+                title="Delete"
+                href="/users/<%=article.id%>/delete"
+                class="color-red margin-left-1"
+                ><i class="fa-solid fa-trash"></i
+              ></a>
+            </div>
+          </div>
+          <!-- comment form -->
+          <div class="flex">
+            <form
+              action="/users/<%=article.id%>/comments"
+              method="post"
+              class="flex"
+            >
+              <input
+                type="text"
+                name="comment"
+                class="margin-right-1"
+                required
+                placeholder="write comment..."
+              />
+              <input
+                type="text"
+                name="name"
+                class="margin-right-1"
+                required
+                placeholder="name"
+              />
+              <input type="submit" class="btn btn-sucess" />
+            </form>
+          </div>
+          <!-- comment box -->
+          <div class="">
+            <h2 class="color-pink"><%=article.comments.length%>Comments</h2>
+            <hr class="color-white" />
+            <div>
+              <% article.comments.reverse().forEach((comment)=>{%>
+              <div class="margin-tb border-bottom pading-1rem">
+                <h1 class="font-size-15 text-captilize">
+                  <%=comment.name%>
+                  <small class="font-size-1 color-pink">
+                    <%=comment.date%>
+                  </small>
+                </h1>
+                <h1 class="font-size-1"><%=comment.comment%></h1>
+                <a title="like" href="/comments/<%=comment.id%>/likes"
+                  ><i class="fa-solid fa-thumbs-up"></i
+                ></a>
+                <span> <%=comment.like%> </span>
+                <a
+                  title="Dislike"
+                  class="margin-left-1"
+                  href="/comments/<%=comment.id%>/dislike"
+                  ><i class="fa-solid fa-thumbs-down"></i
+                ></a>
+                <a
+                  title="Delete"
+                  href="/comments/<%=comment.id%>/delete"
+                  class="color-red margin-left-1"
+                  ><i class="fa-solid fa-trash"></i
+                ></a>
+              </div>
+              <%})%>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <!-- footer -->
+    <footer class="bg-color-black pading-1rem">
+      <div class="container text-center">
+        <span class="color-green"
+          >&copy This app is created by Naresh Rajpoot</span
+        >
+      </div>
+    </footer>
+  </body>
+</html>
